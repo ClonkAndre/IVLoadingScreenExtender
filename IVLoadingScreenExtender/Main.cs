@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Threading;
 
 using IVSDKDotNet;
@@ -38,6 +39,10 @@ namespace IVLoadingScreenExtender
             do
             {
                 IVGrcWindow.ProcessWindowMessage();
+
+                if (IsKeyPressed(Keys.S))
+                    break;
+
                 Thread.Sleep(1);
             }
             while (DateTime.UtcNow < waitUntil);
